@@ -1,0 +1,14 @@
+result
+.direnv/
+*.pdf
+*.toc
+*.vrb
+*.out
+*.log
+*.fls
+*.fdb_latexmk
+*.aux
+*.nav
+*.snm
+*.bbl
+*blg
