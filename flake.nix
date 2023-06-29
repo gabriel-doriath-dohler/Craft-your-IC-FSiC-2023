@@ -27,17 +27,37 @@
             gnu-freefont;
         };
 
+        latexmkWrapped = pkgs.symlinkJoin {
+          name = "latexmk";
+          paths = [ defaultTex ];
+          buildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/latexmk  \
+              --set OSFONTDIR ${pkgs.fira-code}/share/fonts \
+              --set SOURCE_DATE_EPOCH ${toString self.lastModified} \
+              --add-flags '\
+                -interaction=nonstopmode -pdfxe -lualatex \
+                -pretex="\pdfvariable suppressoptionalinfo 512\relax${
+                  texvars "slides"
+                }" \
+                -usepretex
+              '
+          '';
+        };
+
+        buildDeps = with pkgs; [
+          coreutils # Choose the GNU `mktemp` over the BSD one.
+          fira-code
+          fira-code-symbols
+          python310Packages.pygments
+        ];
+
         buildLaTeX = { name, tex ? defaultTex }: {
           "${name}" = pkgs.stdenvNoCC.mkDerivation rec {
             inherit name;
             src = self;
 
-            propagatedBuildInputs = [ tex ] ++ (with pkgs; [
-              coreutils # Choose the GNU `mktemp` over the BSD one.
-              fira-code
-              fira-code-symbols
-              python310Packages.pygments
-            ]);
+            propagatedBuildInputs = [ tex ] ++ buildDeps;
 
             phases = [ "unpackPhase" "buildPhase" ];
 
@@ -76,7 +96,8 @@
         defaultPackage = packages.slides;
 
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [ nixfmt shellcheck ripgrep fd ];
+          buildInputs = with pkgs;
+            [ nixfmt shellcheck ripgrep fd latexmkWrapped ] ++ buildDeps;
         };
       });
 }
