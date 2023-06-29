@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+failures=0
+trap 'failures=$((failures+1))' ERR
+
+# Check if this is the initial commit
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+  against=HEAD
+else
+  against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+echo "pre-commit: Testing the formatting of Nix files..."
+git diff-index --name-only --cached $against --diff-filter=ACMRT -- '*.nix' | \
+  xargs --no-run-if-empty nixfmt -c -v
+
+echo "pre-commit: Shellchecking..."
+git diff-index --name-only --cached $against --diff-filter=ACMRT -- '*.sh' '.githooks/*' | \
+  xargs --no-run-if-empty shellcheck --norc
+
+# Exit with code 1 if some tests failed.
+if [ ! $failures -eq 0 ]; then
+  exit 1
+fi
