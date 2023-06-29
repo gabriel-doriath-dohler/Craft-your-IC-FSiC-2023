@@ -1,0 +1,54 @@
+\documentclass{beamer}
+
+\title{Learning hardware design in the video game Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure Paris (ENS Ulm)}
+\author{Gabriel \textsc{Doriath Döhler}, Constantin \textsc{Gierczak--Galle}}
+\date{\paramDate\ifx\paramDate\empty\today\fi}
+
+\usepackage{fontspec}
+\setmonofont{FreeMono}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=haskell,
+  escapeinside={&}{&},
+  columns=fixed,
+  extendedchars,
+  basewidth={0.5em,0.45em},
+  basicstyle=\ttfamily,
+  mathescape,
+}
+
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+\addtobeamertemplate{navigation symbols}{}{%
+  \usebeamerfont{footline}%
+  \usebeamercolor[fg]{footline}%
+  \hspace{1em}%
+  \insertframenumber/\inserttotalframenumber
+}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}[fragile]
+\frametitle{Questions?}
+\end{frame}
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
