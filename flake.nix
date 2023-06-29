@@ -11,24 +11,20 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        vars = [ "paramDate" ];
         commited = self ? rev;
         texvars = name:
-          toString
-          (pkgs.lib.imap1 (i: n: "\\def\\${n}{${"$" + (toString i)}}") vars)
-          + (if commited then
-            " \\def\\reproduce{Reproduce using:\\newline nix run github:gabriel-doriath-dohler/V-RISC-V-FSiC-2023/${
+          if commited then
+            " \\def\\reproduce{Reproduce using:\\newline nix build github:gabriel-doriath-dohler/V-RISC-V-FSiC-2023/${
                toString self.rev
-             }\\#${name} -- "
+             }\\#${name}}"
           else
-            " \\def\\reproduce{Not reproducible. Please commit (and push) your changes. Last commit: \\today. Arguments are: ")
-          + (pkgs.lib.concatMapStrings (v: "'\\${v}'\\ ") vars)
-          + "}"; # TODO better bash escape
+            " \\def\\reproduce{Not reproducible. Please commit (and push) your changes. Last commit: \\today.}";
 
         defaultTex = pkgs.texlive.combine {
           inherit (pkgs.texlive)
             scheme-medium latexmk geometry hyperref fontspec minted latex-bin
-            mdwtools amsmath fvextra upquote catchfile xstring framed;
+            mdwtools amsmath fvextra upquote catchfile xstring framed
+            gnu-freefont;
         };
 
         buildLaTeX = { name, tex ? defaultTex }: {
@@ -43,14 +39,15 @@
               python310Packages.pygments
             ]);
 
-            phases = [ "unpackPhase" "buildPhase" "installPhase" ];
+            phases = [ "unpackPhase" "buildPhase" ];
 
-            SCRIPT = ''
-              #!/usr/bin/env bash
+            buildPhase = ''
               prefix=${builtins.placeholder "out"}
+              mkdir -p $prefix/share
+              cp doc/${name}.tex $prefix/share/${name}.tex
+              cp doc/ref.bib $prefix/share/ref.bib
               export PATH="${pkgs.lib.makeBinPath propagatedBuildInputs}";
               DIR=$(mktemp -d)
-              RES=$(pwd)/${name}.pdf
               cd $prefix/share
               mkdir -p $DIR/.cache/texmf-var
               env TEXMFHOME="$DIR/.cache" \
@@ -63,20 +60,8 @@
                   texvars name
                 }" \
                 -usepretex ${name}.tex
-              mv "$DIR/${name}.pdf" $RES
+              mv "$DIR/${name}.pdf" $prefix/share/
               rm -rf "$DIR"
-            '';
-
-            buildPhase = ''
-              printenv SCRIPT >${name}
-            '';
-
-            installPhase = ''
-              mkdir -p $out/{bin,share}
-              cp doc/${name}.tex $out/share/${name}.tex
-              cp doc/ref.bib $out/share/ref.bib
-              cp ${name} $out/bin/${name}
-              chmod u+x $out/bin/${name}
             '';
           };
         };
