@@ -4,9 +4,10 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, pre-commit-hooks }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -90,16 +91,34 @@
 
         multipleBuildLaTeX = params:
           with pkgs.lib.attrsets;
-          zipAttrsWith (_: l: pkgs.lib.head l) (map buildLaTeX params);
-        paramsFromNames = names: map (name: { inherit name; }) names;
+          zipAttrsWith (_: pkgs.lib.head) (map buildLaTeX params);
+        paramsFromNames = map (name: { inherit name; });
       in rec {
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              # Nix
+              deadnix.enable = true;
+              nil.enable = true;
+              nixfmt.enable = true;
+              statix.enable = true;
+              # LaTeX
+              chktex.enable = true;
+              latexindent.enable = true;
+            };
+          };
+        };
+
         packages = multipleBuildLaTeX (paramsFromNames [ "slides" ]);
 
         defaultPackage = packages.slides;
 
         devShell = pkgs.mkShell {
           buildInputs = with pkgs;
-            [ nixfmt shellcheck ripgrep fd latexmkWrapped ] ++ buildDeps;
+            [ shellcheck ripgrep fd latexmkWrapped ] ++ buildDeps;
+
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
         };
       });
 }

@@ -1,5 +1,7 @@
 result
 .direnv/
+/.pre-commit-config.yaml
+# LaTeX
 *.pdf
 *.toc
 *.vrb
@@ -11,4 +13,4 @@ result
 *.nav
 *.snm
 *.bbl
-*blg
+*.blg
