@@ -40,9 +40,9 @@
                 -pretex="\pdfvariable suppressoptionalinfo 512\relax${
                   texvars "slides"
                 }" \
-                -usepretex
-                -file-line-error
-              '
+                -usepretex \
+                -file-line-error \
+              ' \
           '';
         };
 
