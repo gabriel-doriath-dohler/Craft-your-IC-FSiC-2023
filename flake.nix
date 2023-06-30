@@ -25,7 +25,7 @@
           inherit (pkgs.texlive)
             scheme-medium latexmk geometry hyperref fontspec minted latex-bin
             mdwtools amsmath fvextra upquote catchfile xstring framed
-            gnu-freefont;
+            gnu-freefont qrcode;
         };
 
         latexmkWrapped = pkgs.symlinkJoin {
