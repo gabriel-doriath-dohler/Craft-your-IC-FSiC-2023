@@ -41,6 +41,7 @@
                   texvars "slides"
                 }" \
                 -usepretex
+                -file-line-error
               '
           '';
         };
@@ -50,6 +51,7 @@
           fira-code
           fira-code-symbols
           python310Packages.pygments
+          texlab
         ];
 
         buildLaTeX = { name, tex ? defaultTex }: {
