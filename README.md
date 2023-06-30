@@ -11,15 +11,7 @@ direnv allow
 nix build
 ```
 
-### Git Hooks
-
-```console
-chmod u+x .githooks/*
-git config --local core.hooksPath .githooks
-```
-
 # TODO
 
-- [ ] Formatting LaTeX in a git hook
 - [ ] Content license (CC BY? CC BY-SA?)
 - [ ] Code license (Apache 2?)
