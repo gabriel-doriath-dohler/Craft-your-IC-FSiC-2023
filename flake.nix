@@ -41,6 +41,7 @@
                 -pretex="\pdfvariable suppressoptionalinfo 512\relax${
                   texvars "slides"
                 }" \
+                --shell-escape \
                 -usepretex \
                 -file-line-error \
               ' \
@@ -53,6 +54,7 @@
           fira-code-symbols
           python310Packages.pygments
           texlab
+          which
         ];
 
         buildLaTeX = { name, tex ? defaultTex }: {
@@ -78,6 +80,7 @@
                   OSFONTDIR=${pkgs.fira-code}/share/fonts \
                   SOURCE_DATE_EPOCH=${toString self.lastModified} \
                 latexmk -interaction=nonstopmode -pdfxe -lualatex \
+                --shell-escape \
                 -output-directory="$DIR" \
                 -pretex="\pdfvariable suppressoptionalinfo 512\relax${
                   texvars name

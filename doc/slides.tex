@@ -13,6 +13,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{qrcode}
+\usepackage{minted}
 
 \newcommand{\rv}{\texttt{RISC-V}}
 \newcommand{\vrv}{\texttt{V-\rv}}
@@ -79,8 +80,25 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
+\section{Toolchain}
+\begin{frame}[fragile]
 	\frametitle{Toolchain}
+	\begin{itemize}
+		\item Assembler
+	\end{itemize}
+	\begin{minted}{asm}
+            # thing
+            store @12 %5 #test
+            add %0 %2 %30
+            jmp abcsd
+            or %0 %15 %1
+            loadi $1 %17
+            sub %0 %0 %5
+            nop
+        .issou
+            mov %2 %5
+            jz issou # Jump
+        \end{minted}
 \end{frame}
 
 \section{Verification}
