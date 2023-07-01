@@ -14,6 +14,9 @@
 \usepackage{xcolor}
 \usepackage{qrcode}
 
+\newcommand{\rv}{\texttt{RISC-V}}
+\newcommand{\vrv}{\texttt{V-RISC-V}}
+
 \lstset{
   language=haskell,
   escapeinside={&}{&},
@@ -48,7 +51,47 @@
 \section{Introduction}
 
 
+
+\begin{frame}
+	\frametitle{Instruction Set Architecture}
+	\vrv
+
+	\texttt{(Very-RISC)-V}
+
+	$8$-bit registers:
+
+	\begin{itemize}
+		\item \texttt{\%0}: always $00000000$ (from the \rv{} spec)
+		\item \texttt{\%1}: always $11111111$ (Gives \texttt{inc},
+		      \texttt{dec}, \texttt{not})
+		\item \texttt{\%2}-\texttt{\%14}: GP registers
+		\item \texttt{\%15}: Random register
+	\end{itemize}
+
+	Instructions:
+	\begin{itemize}
+		\item \textbf{Binops}: \texttt{add}, \texttt{sub}, \texttt{or},
+		      \texttt{xor}: $3$ register operands
+		\item \textbf{Jumps}: inconditionnal or on previous operation
+		      \texttt{oveflow}/\texttt{negative}/\texttt{zero}
+		\item \texttt{loadi}: Load immediate to register
+		\item \textbf{RAM}: Load and store
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Toolchain}
+\end{frame}
+
 \section{Verification}
+\begin{frame}
+	\frametitle{Verifying HW semantics}
+\end{frame}
+
+\begin{frame}
+	\frametitle{ALU}
+\end{frame}
+
 \begin{frame}
 	\frametitle{Verifying HW semantics}
 \end{frame}
