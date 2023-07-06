@@ -3,7 +3,8 @@
 
 \documentclass{beamer}
 
-\title{Learning hardware design in the video game Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure Paris (ENS Ulm)}
+\title{Craft your IC:\\Learning hardware design in
+Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Paris (ENS Ulm)}
 \author{Gabriel \textsc{Doriath Döhler}, Constantin \textsc{Gierczak--Galle}}
 \date{July 12, 2023}
 
@@ -14,9 +15,11 @@
 \usepackage{xcolor}
 \usepackage{qrcode}
 \usepackage{minted}
+\usepackage{caption}
 
 \newcommand{\rv}{\texttt{RISC-V}}
 \newcommand{\vrv}{\texttt{V-\rv}}
+\newcommand{\hw}{HW}
 
 \lstset{
   language=haskell,
@@ -42,6 +45,8 @@
 \begin{frame}[fragile]
 	\frametitle{Motivation}
 
+	\textbf{Teaching \hw{} design}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -55,9 +60,8 @@
 
 \begin{frame}
 	\frametitle{Instruction Set Architecture}
-	\vrv
-
-	\texttt{(Very-RISC)-V}
+	%\vrv
+	%\texttt{(Very-RISC)-V}
 
 	$8$-bit registers:
 
@@ -68,6 +72,8 @@
 		\item \texttt{\%2}-\texttt{\%14}: GP registers
 		\item \texttt{\%15}: Random register
 	\end{itemize}
+
+	\pause
 
 	Instructions:
 	\begin{itemize}
@@ -116,7 +122,24 @@
 
 \begin{frame}[fragile]
 	\frametitle{Questions?}
-	\qrcode[height=4cm]{https://github.com/gabriel-doriath-dohler/V-RISC-V}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			Recap
+
+			\begin{itemize}
+				\item \hw{} design in MC
+				\item Formal verification
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				% FIXME: Update this with the new link
+				% Also, add a clickable link for the handouts
+				\qrcode[height=4cm]{https://github.com/gabriel-doriath-dohler/V-RISC-V}
+				\caption*{Craft your IC project}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \newpage
