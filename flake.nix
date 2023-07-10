@@ -15,7 +15,7 @@
         commited = self ? rev;
         texvars = name:
           if commited then
-            " \\def\\reproduce{Reproduce using:\\newline nix build github:gabriel-doriath-dohler/V-RISC-V-FSiC-2023/${
+            " \\def\\reproduce{Reproduce using: nix build github:gabriel-doriath-dohler/V-RISC-V-FSiC-2023/${
                toString self.rev
              }\\#${name}}"
           else
