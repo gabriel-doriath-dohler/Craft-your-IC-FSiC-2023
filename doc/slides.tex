@@ -17,7 +17,6 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{qrcode}
-\usepackage{minted}
 \usepackage{caption}
 
 \newcommand{\rv}{\texttt{RISC-V}}
@@ -182,19 +181,19 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{itemize}
 		\item Assembler
 	\end{itemize}
-	\begin{minted}{asm}
-            # thing
-            store @12 %5 #test
-            add %0 %2 %30
-            jmp abcsd
-            or %0 %15 %1
-            loadi $1 %17
-            sub %0 %0 %5
-            nop
-        .issou
-            mov %2 %5
-            jz issou # Jump
-        \end{minted}
+	%	\begin{lstlisting}
+	%            \# thing
+	%            store @12 \%5 \#test
+	%            add \%0 \%2 \%30
+	%            jmp abcsd
+	%            or \%0 \%15 \%1
+	%            loadi \$1 \%17
+	%            sub \%0 \%0 \%5
+	%            nop
+	%        .issou
+	%            mov \%2 \%5
+	%            jz issou \# Jump
+	%  \end{lstlisting}
 \end{frame}
 
 \section{Verification (gdd)}

@@ -14,5 +14,4 @@ result
 *.snm
 *.bbl
 *.blg
-*.bak*
-doc/_minted-slides/
+*.bak
