@@ -3,10 +3,13 @@
 
 \documentclass[aspectratio=169]{beamer}
 
+\newcommand{\names}{Gabriel \textsc{Doriath Döhler}, Constantin \textsc{Gierczak--Galle}}
+
 \title{Craft your IC:\\Learning hardware design in
 Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Paris (ENS Ulm)}
-\author{Gabriel \textsc{Doriath Döhler}, Constantin \textsc{Gierczak--Galle}}
-\date{July $12^{th}$, $2023$}
+\author{\names}
+\institute{FSiC $2023$}
+\date{July $12$, $2023$}
 
 \usepackage{fontspec}
 \setmonofont{FreeMono}
@@ -20,6 +23,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \newcommand{\rv}{\texttt{RISC-V}}
 \newcommand{\vrv}{\texttt{V-\rv}}
 \newcommand{\hw}{HW}
+% FIXME: Update this with the new link
+% Also, add a clickable link for the handouts
 \newcommand{\rvlink}{https://github.com/gabriel-doriath-dohler/V-RISC-V}
 
 \lstset{
@@ -46,7 +51,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \begin{frame}[fragile]
 	\frametitle{Motivation}
 
-	\textbf{Teaching \hw{} design}
+	\textbf{Learning about \hw{} design}
 
 \end{frame}
 
@@ -55,10 +60,13 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\tableofcontents
 \end{frame}
 
-\section{Introduction}
+\section{Motivation (cst1?)}
 
+\section{Logic circuits in Minecraft (gdd)}
+\begin{frame}
+\end{frame}
 
-
+\section{ISA (cst1)}
 \begin{frame}
 	\frametitle{Instruction Set Architecture}
 	%\vrv
@@ -87,7 +95,11 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\end{itemize}
 \end{frame}
 
-\section{Toolchain}
+\section{An $8$-bit CPU (???)}
+\begin{frame}
+\end{frame}
+
+\section{Toolchain (cst1)}
 \begin{frame}[fragile]
 	\frametitle{Toolchain}
 	\begin{itemize}
@@ -108,9 +120,15 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
         \end{minted}
 \end{frame}
 
-\section{Verification}
+\section{Verification (gdd)}
 \begin{frame}
 	\frametitle{Verifying HW semantics}
+	Notes: On n'a pas de HDL (expliquer pourquoi)
+	Mentionner l'état de l'art (~inexistant) en génération de circuit MC à
+	partir de HDL.
+
+	Donc pour vérifier le CPU, on vérifie... Le CPU! Pas la source.
+	Donc on raisonne directement sur le """silicium"""
 \end{frame}
 
 \begin{frame}
@@ -134,13 +152,14 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
-				% FIXME: Update this with the new link
-				% Also, add a clickable link for the handouts
 				\caption*{Craft your IC project}
 				\qrcode[height=4cm]{\rvlink}
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\begin{centering}
+		\small \names{}
+	\end{centering}
 \end{frame}
 
 \newpage
