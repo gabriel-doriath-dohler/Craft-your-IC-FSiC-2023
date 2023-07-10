@@ -5,7 +5,7 @@
 
 \newcommand{\names}{Gabriel \textsc{Doriath Döhler}, Constantin \textsc{Gierczak--Galle}}
 
-\title{Craft your IC:\\Learning hardware design in
+\title{"Craft your IC"\\Learning hardware design in
 Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Paris (ENS Ulm)}
 \author{\names}
 \institute{FSiC $2023$}
@@ -26,15 +26,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 % Also, add a clickable link for the handouts
 \newcommand{\rvlink}{https://github.com/gabriel-doriath-dohler/V-RISC-V}
 
-\lstset{
-  language=haskell,
-  escapeinside={&}{&},
-  columns=fixed,
-  extendedchars,
-  basewidth={0.5em,0.45em},
-  basicstyle=\ttfamily,
-  mathescape,
-}
+\setcounter{tocdepth}{1}
 
 \begin{document}
 \beamertemplatenavigationsymbolsempty
@@ -48,10 +40,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \maketitle
 
 \begin{frame}[fragile]
-	\frametitle{Motivation}
-
-	\textbf{Learning about \hw{} design}
-
+	\frametitle{Story time}
+	sysnum CPU, cst1 + gdd idée MC
 \end{frame}
 
 \begin{frame}[fragile]
@@ -59,13 +49,42 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\tableofcontents
 \end{frame}
 
-\section{Motivation (cst1?)}
-
 \section{Logic circuits in Minecraft (gdd)}
+
 \begin{frame}
+	\frametitle{Minecraft}
+	block game owned by microsoft (not open source but reverse friendly)
 \end{frame}
 
-\section{ISA (cst1)}
+\begin{frame}
+	\frametitle{Minecraft Redstone}
+	how redstone works
+\end{frame}
+
+\begin{frame}
+	\frametitle{Building Circuits!}
+	example of simple circuits (memory cell, combinatorial circuits, clocks, MUX?)
+	CCA adder
+\end{frame}
+
+\begin{frame}
+	\frametitle{Minecraft vs "Real" Hardware: what's different?}
+	power strength
+	instant diodes
+	no tooling: HDL, version control, logic analyzer
+	the physical layer is much harder
+\end{frame}
+
+\section{"Craft your IC" Design and ISA (cst1)}
+
+% note for cst1: i would talk about:
+% - ISA choice (why not RISV-V?)
+% - debuging (replay mod)
+% - wirering the different parts is a challenge
+% - decoding instruction is trivial because of instruction length
+% - simple pipeline (wave pipeline) (not done yet)
+% - the things you already mention
+
 \begin{frame}
 	\frametitle{Instruction Set Architecture}
 	%\vrv
@@ -94,7 +113,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\end{itemize}
 \end{frame}
 
-\section{An $8$-bit CPU (???)}
+\subsection{An $8$-bit CPU (???)}
 \begin{frame}
 	Rapidly list all components
 
@@ -176,11 +195,13 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \end{frame}
 
 \section{Toolchain (cst1)}
+% merge this section somewhere else?
 \begin{frame}[fragile]
 	\frametitle{Toolchain}
 	\begin{itemize}
 		\item Assembler
 	\end{itemize}
+	% sorry it's broken I should fix it
 	%	\begin{lstlisting}
 	%            \# thing
 	%            store @12 \%5 \#test
@@ -196,7 +217,54 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	%  \end{lstlisting}
 \end{frame}
 
-\section{Verification (gdd)}
+\section{Demo (cst1)}
+
+\begin{frame}
+	\frametitle{The Demo (finally!)}
+	clock
+	e approximation using RNG
+	joke: very secure because: active temper detection with TNT + industry grade (aka. java) RNG.
+\end{frame}
+
+\section{The community (cst1)}
+
+\begin{frame}
+	ORE
+	Chungus 2
+	minecraft in minecraft
+	similar to traditional FOSS communities
+	license
+	they make sure to give credits to creators of designs
+
+	toolchain:
+	- prismlauncher and quilt mod loader
+	- ressource pack vanilla tweaks
+	- worldedit (copy paste)
+	- replay mod (debugging and rendering)
+	- carpet (tick rate control + noclip and more)
+	- ferritecore, immediatelyFast, lithium, sodium (optimizations)
+	- Xaero's World Map (waypoints)
+	- Tweakeroo (flexible and accurate block placement)
+	- litematica
+	- isometric renders (renders)
+	- MCHPRS (gdd?)
+
+	Talk about the community doing crazy CPUs in MC, drop a picture, some
+	links, etc.
+\end{frame}
+
+\section{Perspectives and Verification (gdd)}
+\begin{frame}
+	\frametitle{Perspectives}
+	\begin{itemize}
+		\item arm cortex A53
+		\item RV32-I
+		\item dynamic FPGA
+		\item MCHPS
+		\item semantics and formal verification
+	\end{itemize}
+\end{frame}
+
 \begin{frame}
 	\frametitle{Verifying HW semantics}
 	Notes: On n'a pas de HDL (expliquer pourquoi)
@@ -207,25 +275,28 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	Donc on raisonne directement sur le """silicium"""
 \end{frame}
 
-\begin{frame}
-	\frametitle{ALU}
-\end{frame}
+\section{Educational Aspects (gdd)}
 
 \begin{frame}
-	\frametitle{Verifying HW semantics}
-\end{frame}
+	\frametitle{Learning Outcomes}
+	testimonials from ORE who became "real" hardware people
+	talent pool to recruit from
+	MC is an interactive tool
+	lecture at Harvard
 
-\section{The community (???)}
-
-\begin{frame}
-	Talk about the community doing crazy CPUs in MC, drop a picture, some
-	links, etc.
+	what we learned
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Questions?}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
+			A big thank you to a few special people
+			\begin{itemize}
+				\item Hadrien Barral
+				\item Rémy Citerin
+			\end{itemize}
+
 			Recap
 
 			\begin{itemize}
