@@ -69,6 +69,7 @@
               prefix=${builtins.placeholder "out"}
               mkdir -p $prefix/share
               cp doc/${name}.tex $prefix/share/${name}.tex
+              cp doc/*.png $prefix/share/
               cp doc/ref.bib $prefix/share/ref.bib
               export PATH="${pkgs.lib.makeBinPath propagatedBuildInputs}";
               DIR=$(mktemp -d)
