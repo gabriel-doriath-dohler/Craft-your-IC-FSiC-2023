@@ -72,24 +72,64 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}
 	\frametitle{Minecraft Redstone}
-	how redstone works
 
-	wool
-	lamps and levers = inputs and outputs
-	redstone wire, or gates (FANIN), FANOUT
-	torches and ticks (1 tick = .1 sec)
-	repeaters
-	clock
-	delay element
-	diode
-	amplifier
-	can't have 4 meters of cables like in tiny tapeout
-	locked repeaters = memory cell
-	comparators and barrels
-	slabs = instant diodes
-	(many more constructs)
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			Redstone = equivalent of electronics
+			\begin{itemize}
+				\item<1->{Lever = player input}
+				\item<1->{Lamp = output}
 
-	minecraft as a SLOW weird netlist simulator
+				\item<2->{Redstone = wires}
+
+				\item<3->{Torch = NOT gate}
+				\item<3->{1 tick = 0.1 sec}
+
+				\item<4->{Repeater}
+				\begin{itemize}
+					\item<4->{delay element}
+					\item<4->{diode}
+					\item<4->{amplifier}
+					\item<4->{memory cell}
+				\end{itemize}
+
+				\item<8>{Many more redstone components...}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+				\includegraphics<1>[width=0.9\textwidth]{imgs/lamp.png}
+
+				\includegraphics<2>[width=0.4\textwidth]{imgs/wire.png}
+				\includegraphics<2>[width=0.4\textwidth]{imgs/or_gate.png}
+				\includegraphics<2>[width=0.4\textwidth]{imgs/fanout.png}
+
+				\includegraphics<3>[width=0.7\textwidth]{imgs/torch_on.png}
+				\includegraphics<3>[width=0.7\textwidth]{imgs/torch_off.png}
+
+				\includegraphics<4>[width=0.4\textwidth]{imgs/repeater_delay_off.png}
+				\includegraphics<4>[width=0.4\textwidth]{imgs/repeater_delay_on.png}
+				\includegraphics<4>[width=0.5\textwidth]{imgs/repeater_diode.png}
+
+				\includegraphics<5>[width=0.9\textwidth]{imgs/repeater_clock.png}
+
+				\includegraphics<6>[height=0.8\textheight]{imgs/power_strength.png}
+				\includegraphics<6>[height=0.8\textheight]{imgs/repeater_amplifier.png}
+
+				\includegraphics<7>[width=0.9\textwidth]{imgs/repeater_memory_cell.png}
+			\end{center}
+		\end{column}
+	\end{columns}
+
+	% can't have 4 meters of cables like in tiny tapeout
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Minecraft Redstone: unusual behavior}
+	% comparators and barrels
+	% slabs = instant diodes
+	% minecraft as a SLOW weird netlist simulator
 \end{frame}
 
 \begin{frame}
