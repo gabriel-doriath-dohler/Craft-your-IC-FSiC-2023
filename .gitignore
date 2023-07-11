@@ -14,4 +14,4 @@ result
 *.snm
 *.bbl
 *.blg
-*.bak
+*.bak*
