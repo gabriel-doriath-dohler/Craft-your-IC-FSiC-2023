@@ -217,15 +217,23 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{itemize}
 		\item \textbf{Binops}: \texttt{add}, \texttt{sub}, \texttt{or},
 		      \texttt{xor}: $3$ register operands
-		\item \textbf{Jumps}: unconditional or on
+		\item \textbf{Jumps}: unconditional or
 		      \texttt{oveflow}/\texttt{negative}/\texttt{zero}
-		\item \texttt{loadi}: Load immediate to register
-		\item \textbf{RAM}: Load and store
-		\item \texttt{print}: prints a byte to a 7-segment display
+		\item \texttt{loadi}
+		\item \textbf{RAM}: load \& store
+		\item \texttt{print}: print byte to 7-segment display
 	\end{itemize}
 \end{frame}
 
 \subsection{A $8$-bit CPU}
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{imgs/cpu2.png}}
+	\begin{frame}[plain]
+		% block game owned by microsoft (not open source but reverse friendly)
+		% a player moves and can place/delete cubes (called blocks) in a grid
+	\end{frame}
+}
 % Harvard architecthture (separate ROM and RAM)
 % 8 bits because max power strength is 15 so the ALU towers do not need repeaters
 \begin{frame}
@@ -307,6 +315,24 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 			\end{figure}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Some stats}
+
+	Performance:
+	\begin{itemize}
+		\item In-order, single core
+		\item $0.1$Hz clock (on normal game speed)
+		\item $1$ IpC
+	\end{itemize}
+
+	The actual circuit
+	\begin{itemize}
+		\item $70$k blocks
+		\item $3.6$k registers/repeaters
+		\item $30$k unit lengths of wiring
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
