@@ -41,13 +41,18 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}[fragile]
 	\frametitle{Story time}
-	game of life turing machine
-	borrow computational construct from the game
-	sysnum CPU, cst1 + gdd idée MC
-	but there is one problem: know that we had the idea, we had to do it
-	but why???
-	- Minecraft is a good interactive tool to learn hardwar econcepts
-	- BUT IT'S ALSO VERY FUN
+	\begin{figure}
+		\includegraphics[width=.5\textwidth]{game_of_life.png}
+		\caption{Conway's game of life, by Lucas Vieira - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=101736}
+	\end{figure}
+
+	% game of life turing machine
+	% borrow computational construct from the game
+	% sysnum CPU, cst1 + gdd idée MC
+	% but there is one problem: know that we had the idea, we had to do it, somehow the TAs accepted
+	% but why???
+	% - Minecraft is a good interactive tool to learn hardware concepts
+	% - BUT IT'S ALSO VERY FUN
 \end{frame}
 
 \begin{frame}[fragile]
@@ -57,11 +62,13 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \section{Logic circuits in Minecraft (gdd)}
 
-\begin{frame}
-	\frametitle{Minecraft}
-	block game owned by microsoft (not open source but reverse friendly)
-	a player moves and can place/delete cubes (called blocks) in a grid
-\end{frame}
+ {
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{minecraft.png}}
+  \begin{frame}[plain]
+	  % block game owned by microsoft (not open source but reverse friendly)
+	  % a player moves and can place/delete cubes (called blocks) in a grid
+  \end{frame}
+ }
 
 \begin{frame}
 	\frametitle{Minecraft Redstone}
@@ -71,8 +78,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	lamps and levers = inputs and outputs
 	redstone wire, or gates (FANIN), FANOUT
 	torches and ticks (1 tick = .1 sec)
-	simple torch based clock (in game)
 	repeaters
+	clock
 	delay element
 	diode
 	amplifier
@@ -246,8 +253,6 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\end{columns}
 \end{frame}
 
-\section{Toolchain (cst1)}
-% merge this section somewhere else?
 \begin{frame}[fragile]
 	\frametitle{Toolchain}
 	\begin{itemize}
@@ -352,7 +357,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	Donc on raisonne directement sur le """silicium"""
 \end{frame}
 
-\section{Educational Aspects (gdd)}
+\section{Educational Aspects (gdd + cst1)}
 
 \begin{frame}
 	\frametitle{Learning Outcomes}
@@ -364,6 +369,13 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	graphics rendering
 	asm
 	LLVM-like optimization stages for MCHPRS
+
+	asm
+	linker
+	CPU design
+	verification
+
+	teaching redstone to my brother is simpler than verilog
 
 	what we learned
 \end{frame}
