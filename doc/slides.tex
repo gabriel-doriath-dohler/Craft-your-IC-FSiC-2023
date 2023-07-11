@@ -361,10 +361,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	loadi $0 %2
 	add %5 %3 %3
 	xor %3 %1 %9
-	add %5 %9 %9
-	add %6 %9 %0
-	jneg hour
-	jmp print_min
+    ...
 	\end{lstlisting}
 		\end{column}
 		\pause
@@ -381,6 +378,7 @@ add %5 %9 %9
 add %6 %9 %0
 jneg 0x10
 jmp 0x03
+...
 	\end{lstlisting}
 			\pause
 			\begin{itemize}
@@ -397,7 +395,8 @@ jmp 0x03
 setblock -272 197 -1402 torch
 setblock -270 197 -1402 torch
 setblock -268 197 -1402 air
-        \end{lstlisting}
+...
+    \end{lstlisting}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -406,6 +405,7 @@ setblock -268 197 -1402 air
 
 \begin{frame}
 	\frametitle{The Demo (finally!)}
+	% TODO the link?
 	clock
 	e approximation using RNG
 	joke: very secure because: active temper detection with TNT + industry grade (aka. java) RNG.
@@ -417,14 +417,37 @@ setblock -268 197 -1402 air
 	\frametitle{The community}
 	\framesubtitle{Other processors}
 
-	https://openredstone.org/
+	\textbf{O}pen \textbf{R}edstone \textbf{E}ngineers
+	\\
+	\url{https://openredstone.org/}
 
-	Talk about MineTest, as a possible OS replacement for MC.
+	\includegraphics[width=0.2\textwidth]{imgs/ore.png}
+
+	\begin{itemize}
+
+		\item Shared circuit designs
+		\item Collaborative building
+		\item ``school'' system
+		\item Guides and resources
+		\item<2-> Guest lecture at Harvard \url{https://www.youtube.com/watch?v=EcGExRlHVzg}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{The community}
 	\framesubtitle{Open-source tools}
+
+	In addition to shared circuit designs and techniques:
+
+	\begin{itemize}
+		\item Alternative high-performance Minecraft servers (\url{https://github.com/MCHPR/MCHPRS})
+		\item Game mode for debugging
+		\item Community-organization tools
+	\end{itemize}
+
+	\pause
+
+	All in all, very similar to traditional FOSS comunities.
 
 \end{frame}
 
