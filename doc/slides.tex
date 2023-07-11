@@ -255,17 +255,19 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}[fragile]
 	\frametitle{Toolchain}
-	\begin{itemize}
-		\item Assembler
-	\end{itemize}
-	\lstdefinelanguage{asm}
-	{morekeywords={add, xor, jmp, jneg, loadi},
-		sensitive=true,
-		morecomment=[l]{--},
-		morecomment=[s]{/*}{*/},
-	}
-	\lstset{language=asm}
-	\begin{lstlisting}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Assembler
+			\end{itemize}
+			\lstdefinelanguage{asm}
+			{morekeywords={add, xor, jmp, jneg, loadi},
+				sensitive=true,
+				morecomment=[l]{--},
+				morecomment=[s]{/*}{*/},
+			}
+			\lstset{language=asm}
+			\begin{lstlisting}
 .sec
 	add %5 %2 %2
 	xor %2 %1 %9
@@ -282,6 +284,40 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	jneg hour
 	jmp print_min
 	\end{lstlisting}
+		\end{column}
+		\pause
+		\begin{column}{0.6\textwidth}
+			\begin{itemize}
+				\item Linker
+			\end{itemize}
+			Resolves label references and computes jumps
+			\lstset{language=asm}
+			\begin{lstlisting}
+add %5 %2 %2
+xor %2 %1 %9
+add %5 %9 %9
+add %6 %9 %0
+jneg 0x10
+jmp 0x03
+	\end{lstlisting}
+			\pause
+			\begin{itemize}
+				\item ROM generator
+			\end{itemize}
+			\lstdefinelanguage{command}
+			{morekeywords={setblock, torch, air},
+				sensitive=true,
+				morecomment=[l]{--},
+				morecomment=[s]{/*}{*/},
+			}
+			\lstset{language=command}
+			\begin{lstlisting}
+setblock -272 197 -1402 torch
+setblock -270 197 -1402 torch
+setblock -268 197 -1402 air
+        \end{lstlisting}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \section{Demo (cst1)}
