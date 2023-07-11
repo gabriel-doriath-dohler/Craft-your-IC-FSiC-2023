@@ -215,24 +215,6 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \end{frame}
 
 \begin{frame}
-	\frametitle{I/O}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item \hw{} design in MC
-				\item Formal verification
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				An Image
-				\caption*{I/O: screen}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}
 	\frametitle{ALU}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -253,25 +235,53 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\end{columns}
 \end{frame}
 
+\begin{frame}
+	\frametitle{I/O}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item \hw{} design in MC
+				\item Formal verification
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{figure}
+				\includegraphics[width=\textwidth]{imgs/screen.png}
+				\caption*{$7$-segment display}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
 \begin{frame}[fragile]
 	\frametitle{Toolchain}
 	\begin{itemize}
 		\item Assembler
 	\end{itemize}
-	% sorry it's broken I should fix it
-	%	\begin{lstlisting}
-	%            \# thing
-	%            store @12 \%5 \#test
-	%            add \%0 \%2 \%30
-	%            jmp abcsd
-	%            or \%0 \%15 \%1
-	%            loadi \$1 \%17
-	%            sub \%0 \%0 \%5
-	%            nop
-	%        .issou
-	%            mov \%2 \%5
-	%            jz issou \# Jump
-	%  \end{lstlisting}
+	\lstdefinelanguage{asm}
+	{morekeywords={add, xor, jmp, jneg, loadi},
+		sensitive=true,
+		morecomment=[l]{--},
+		morecomment=[s]{/*}{*/},
+	}
+	\lstset{language=asm}
+	\begin{lstlisting}
+.sec
+	add %5 %2 %2
+	xor %2 %1 %9
+	add %5 %9 %9
+	add %6 %9 %0
+	jneg min
+	jmp print_sec
+.min
+	loadi $0 %2
+	add %5 %3 %3
+	xor %3 %1 %9
+	add %5 %9 %9
+	add %6 %9 %0
+	jneg hour
+	jmp print_min
+	\end{lstlisting}
 \end{frame}
 
 \section{Demo (cst1)}
