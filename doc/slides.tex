@@ -41,7 +41,13 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}[fragile]
 	\frametitle{Story time}
+	game of life turing machine
+	borrow computational construct from the game
 	sysnum CPU, cst1 + gdd idée MC
+	but there is one problem: know that we had the idea, we had to do it
+	but why???
+	- Minecraft is a good interactive tool to learn hardwar econcepts
+	- BUT IT'S ALSO VERY FUN
 \end{frame}
 
 \begin{frame}[fragile]
@@ -54,25 +60,63 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \begin{frame}
 	\frametitle{Minecraft}
 	block game owned by microsoft (not open source but reverse friendly)
+	a player moves and can place/delete cubes (called blocks) in a grid
 \end{frame}
 
 \begin{frame}
 	\frametitle{Minecraft Redstone}
 	how redstone works
+
+	wool
+	lamps and levers = inputs and outputs
+	redstone wire, or gates (FANIN), FANOUT
+	torches and ticks (1 tick = .1 sec)
+	simple torch based clock (in game)
+	repeaters
+	delay element
+	diode
+	amplifier
+	can't have 4 meters of cables like in tiny tapeout
+	locked repeaters = memory cell
+	comparators and barrels
+	slabs = instant diodes
+	(many more constructs)
+
+	minecraft as a SLOW weird netlist simulator
 \end{frame}
 
 \begin{frame}
 	\frametitle{Building Circuits!}
-	example of simple circuits (memory cell, combinatorial circuits, clocks, MUX?)
-	CCA adder
+	we already built a clock and a memory cell
+	example of simple circuits
+	half adder (in game)
+	MUX/DEMUX?
+	cool minecraft tech: CCA adder (Yap7 + Magic:\^ (2014)))
+	$$cc_i = carry_cancel_i = cancel_i = a_i nand b_i = not propagate$$
+	$$g_i = generate_i = a_1 and b_i$$
+	$$c_{i+1} = (not cancel_i) and (generate_i or ((not cancel_{i-1}) and (generate_{i-1} or ...)))$$
+	$$= ((not cancel_i) and generate_i) or ((not cancel_i) and (not cancel_{i-1}) and generate_{i-1}) or ...$$
+	$$= sum_{j=0}^{i} generate_{j} and prod_{k=j}^{i} ¬cancel_k$$
+	$$slabTower_{g_i} = max power strength_{j=0}^{i-1} generate_j$$
+	$$slabTower_{cc_i} = max power strength_{j=0}^{i-1} cc_j$$
+	works because a carry that is later canceled will have less power strength on th towers
+	$$c_{i+1} = slabTower_{g_i} > slabTower_{cc_i}$$
+	$$c_0 = carry_in$$
+	$$a_n = b_n = 0$$
+	$$o_i = a_i xor b_i xor c_i$$
+	cancel doesn't have to be accurate (use NOR)
+
+	7 ticks design (5 tick possible?)
+	fully synchronized
+	pipeline every 1 or 2 ticks
 \end{frame}
 
 \begin{frame}
 	\frametitle{Minecraft vs "Real" Hardware: what's different?}
 	power strength
 	instant diodes
-	no tooling: HDL, version control, logic analyzer
-	the physical layer is much harder
+	no tooling: HDL, version control, GTKWave, test framework
+	the physical layer is much more constraining: wires are big and connect automatically, but being compact is necessary for performance
 \end{frame}
 
 \section{"Craft your IC" Design and ISA (cst1)}
@@ -114,6 +158,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 \end{frame}
 
 \subsection{An $8$-bit CPU (???)}
+% Harvard architecthture (separate ROM and RAM)
+% 8 bits because max power strength is 15 so the ALU towers do not need repeaters
 \begin{frame}
 	Rapidly list all components
 
@@ -253,7 +299,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	links, etc.
 \end{frame}
 
-\section{Perspectives and Verification (gdd)}
+\section{Perspectives and Verification (gdd can skip if needed)}
 \begin{frame}
 	\frametitle{Perspectives}
 	\begin{itemize}
@@ -267,7 +313,17 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}
 	\frametitle{Verifying HW semantics}
-	Notes: On n'a pas de HDL (expliquer pourquoi)
+	MC semantics
+	ALU graph
+	haskell k induction
+	results
+	stats number of blocks (part's list)
+	so way too big for SMT
+	plan: use model checking with a lean DSL and state machines
+
+
+
+	Notes: On n'a pas de HDL (expliquer pourquoi et donner le lien du HDL existant)
 	Mentionner l'état de l'art (~inexistant) en génération de circuit MC à
 	partir de HDL.
 
@@ -283,6 +339,10 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	talent pool to recruit from
 	MC is an interactive tool
 	lecture at Harvard
+	16 yo
+	graphics rendering
+	asm
+	LLVM-like optimization stages for MCHPRS
 
 	what we learned
 \end{frame}
