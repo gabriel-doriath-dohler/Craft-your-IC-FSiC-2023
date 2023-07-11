@@ -178,6 +178,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	pipeline every 1 or 2 ticks
 \end{frame}
 
+% TODO
 \begin{frame}
 	\frametitle{Minecraft vs "Real" Hardware: what's different?}
 	power strength
@@ -427,20 +428,18 @@ setblock -268 197 -1402 air
 	links, etc.
 \end{frame}
 
-\section{Perspectives and Verification (gdd can skip if needed)}
-% TODO
-\begin{frame}
-	\frametitle{Perspectives}
-	\begin{itemize}
-		\item arm cortex A53
-		\item RV32-I
-		\item dynamic FPGA
-		\item MCHPS
-		\item semantics and formal verification
-	\end{itemize}
-\end{frame}
+\section{Verification (gdd)}
+% \begin{frame}
+% 	\frametitle{Perspectives}
+% 	\begin{itemize}
+% 		\item arm cortex A53
+% 		\item RV32-I
+% 		\item dynamic FPGA
+% 		\item MCHPS
+% 		\item semantics and formal verification
+% 	\end{itemize}
+% \end{frame}
 
-% TODO
 \begin{frame}
 	\frametitle{Formal verification}
 	\begin{itemize}
@@ -453,42 +452,36 @@ setblock -268 197 -1402 air
 	\frametitle{First attempt: k-induction with Haskell}
 	\begin{itemize}
 		\item Export the matrix of blocks
-		\item Graph representation
+		\item Graph representation % explain why
 		\item Define Minecraft's semantics
 		\item DSL to express the goal
 		\item Z3 SMT solving
 	\end{itemize}
 
+	% encouraging results
+
 	CPU parts list:
 	\begin{itemize}
-		\item TODO
+		\item 7k redstone elements
+		\item 30k redstone wires
 	\end{itemize}
 
-	% \begin{columns}
-	% 	\begin{column}{0.5\textwidth}
-	% 	\end{column}
-	% 	\begin{column}{0.5\textwidth}
-	% 		\begin{center}
-	% 			\includegraphics<1>[width=0.9\textwidth]{imgs/lamp.png}
-	% 		\end{center}
-	% 	\end{column}
-	% \end{columns}
+	so, probably too slow anyways...
+\end{frame}
 
-	ALU graph
-	haskell k induction
-	results
-	stats number of blocks (part's list)
-	so way too big for SMT
-	plan: use model checking with a lean DSL and state machines
+\begin{frame}
+	\frametitle{On going second attempt: model checking}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{imgs/cca.png}
+		\caption{CCA graph}
+	\end{figure}
 
+	Each node is a state machine.
 
-
-	Notes: On n'a pas de HDL (expliquer pourquoi et donner le lien du HDL existant)
-	Mentionner l'état de l'art (~inexistant) en génération de circuit MC à
-	partir de HDL.
-
-	Donc pour vérifier le CPU, on vérifie... Le CPU! Pas la source.
-	Donc on raisonne directement sur le """silicium"""
+	\begin{itemize}
+		\item Model checking
+		\item Lean 4 DSL to write semantics and goals
+	\end{itemize}
 \end{frame}
 
 \section{Educational Aspects (gdd + cst1)}
