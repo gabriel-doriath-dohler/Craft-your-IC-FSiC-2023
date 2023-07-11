@@ -1,6 +1,6 @@
-# V-RISC-V at FSiC 2023
+# "Craft your IC" at FSiC 2023
 
-Slides for our talk at FSiC 2023 presenting our work on V-RISC-V.
+Slides for our talk at FSiC 2023 presenting our work "Craft your IC".
 
 ## Dev Setup
 

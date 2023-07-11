@@ -1,5 +1,5 @@
 {
-  description = "V-RISC-V at FSiC 2023";
+  description = "Craft your IC at FSiC 2023";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
@@ -15,7 +15,7 @@
         commited = self ? rev;
         texvars = name:
           if commited then
-            " \\def\\reproduce{Reproduce using: nix build github:gabriel-doriath-dohler/V-RISC-V-FSiC-2023/${
+            " \\def\\reproduce{Reproduce using: nix build github:gabriel-doriath-dohler/Craft-your-IC-FSiC-2023/${
                toString self.rev
              }\\#${name}}"
           else
