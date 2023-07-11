@@ -153,6 +153,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \begin{frame}
 	\frametitle{Building Circuits!}
+	% TODO
 	we already built a clock and a memory cell
 	example of simple circuits
 	half adder (in game)
@@ -435,6 +436,7 @@ setblock -268 197 -1402 air
 \end{frame}
 
 \section{Perspectives and Verification (gdd can skip if needed)}
+% TODO
 \begin{frame}
 	\frametitle{Perspectives}
 	\begin{itemize}
@@ -446,9 +448,40 @@ setblock -268 197 -1402 air
 	\end{itemize}
 \end{frame}
 
+% TODO
 \begin{frame}
-	\frametitle{Verifying HW semantics}
-	MC semantics
+	\frametitle{Formal verification}
+	\begin{itemize}
+		\item Existing tools do not know Minecraft
+		\item Define Minecraft's semantics
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{First attempt: k-induction with Haskell}
+	\begin{itemize}
+		\item Export the matrix of blocks
+		\item Graph representation
+		\item Define Minecraft's semantics
+		\item DSL to express the goal
+		\item Z3 SMT solving
+	\end{itemize}
+
+	CPU parts list:
+	\begin{itemize}
+		\item TODO
+	\end{itemize}
+
+	% \begin{columns}
+	% 	\begin{column}{0.5\textwidth}
+	% 	\end{column}
+	% 	\begin{column}{0.5\textwidth}
+	% 		\begin{center}
+	% 			\includegraphics<1>[width=0.9\textwidth]{imgs/lamp.png}
+	% 		\end{center}
+	% 	\end{column}
+	% \end{columns}
+
 	ALU graph
 	haskell k induction
 	results
@@ -468,6 +501,7 @@ setblock -268 197 -1402 air
 
 \section{Educational Aspects (gdd + cst1)}
 
+% TODO
 \begin{frame}
 	\frametitle{Learning Outcomes}
 	testimonials from ORE who became "real" hardware people
