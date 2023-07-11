@@ -184,9 +184,9 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	$8$-bit registers:
 
 	\begin{itemize}
-		\item \texttt{\%0}: always $00000000$ (from the \rv{} spec)
-		\item \texttt{\%1}: always $11111111$ (Gives \texttt{inc},
-		      \texttt{dec}, \texttt{not})
+		\item \texttt{\%0}: $00000000$ -- like \rv{}
+		\item \texttt{\%1}: $11111111$ -- for $1$--op \texttt{inc}
+		      \texttt{dec}, \texttt{not}
 		\item \texttt{\%2}-\texttt{\%14}: GP registers
 		\item \texttt{\%15}: Random register
 	\end{itemize}
@@ -197,10 +197,11 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{itemize}
 		\item \textbf{Binops}: \texttt{add}, \texttt{sub}, \texttt{or},
 		      \texttt{xor}: $3$ register operands
-		\item \textbf{Jumps}: inconditionnal or on previous operation
+		\item \textbf{Jumps}: unconditional or on
 		      \texttt{oveflow}/\texttt{negative}/\texttt{zero}
 		\item \texttt{loadi}: Load immediate to register
 		\item \textbf{RAM}: Load and store
+		\item \texttt{print}: prints a byte to a 7-segment display
 	\end{itemize}
 \end{frame}
 
@@ -220,8 +221,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				\item ??? number of instructions?
-				\item How are the instructions stored?
+				\item $128$ instruction ROM
+				\item Bits encoded as presence/absence of power blocks in a grid
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.6\textwidth}
@@ -242,7 +243,8 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item All registers doubled for double--read
-				\item Formal verification
+				\item \texttt{\%0} and \texttt{\%1} hard-wired
+				\item \texttt{\%15} random register uses Minecraft randomizers
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -272,7 +274,6 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 				\includegraphics<2->[width=0.8\textwidth]{imgs/alu.png}
 
 				\framesubtitle<1>{ALU slice}
-				\framesubtitle<2->{ALU}
 			\end{center}
 		\end{column}
 	\end{columns}
@@ -481,7 +482,7 @@ setblock -268 197 -1402 air
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			A big thank you to the FSiC commitee for hosting our talk!
+			A big thank you to the FSiC committee for hosting our talk!
 			\begin{figure}
 				\includegraphics[width=0.75\textwidth]{imgs/Fsic2023_logo.png}
 			\end{figure}
