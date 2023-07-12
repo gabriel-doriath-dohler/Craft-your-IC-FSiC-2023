@@ -151,40 +151,51 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	MC = netlist simulator for 4-bit valued signals
 \end{frame}
 
-\begin{frame}
-	\frametitle{Building Circuits!}
-	% TODO
-	we already built a clock and a memory cell
-	example of simple circuits
-	half adder (in game)
-	MUX/DEMUX?
-	cool minecraft tech: CCA adder (Yap7 + Magic:\^ (2014)))
-	$$cc_i = carry_cancel_i = cancel_i = a_i nand b_i = not propagate$$
-	$$g_i = generate_i = a_1 and b_i$$
-	$$c_{i+1} = (not cancel_i) and (generate_i or ((not cancel_{i-1}) and (generate_{i-1} or ...)))$$
-	$$= ((not cancel_i) and generate_i) or ((not cancel_i) and (not cancel_{i-1}) and generate_{i-1}) or ...$$
-	$$= sum_{j=0}^{i} generate_{j} and prod_{k=j}^{i} ¬cancel_k$$
-	$$slabTower_{g_i} = max power strength_{j=0}^{i-1} generate_j$$
-	$$slabTower_{cc_i} = max power strength_{j=0}^{i-1} cc_j$$
-	works because a carry that is later canceled will have less power strength on th towers
-	$$c_{i+1} = slabTower_{g_i} > slabTower_{cc_i}$$
-	$$c_0 = carry_in$$
-	$$a_n = b_n = 0$$
-	$$o_i = a_i xor b_i xor c_i$$
-	cancel doesn't have to be accurate (use NOR)
+% \begin{frame}
+% 	\frametitle{Building Circuits!}
+% 	we already built a clock and a memory cell
+% 	example of simple circuits
+% 	half adder (in game)
+% 	MUX/DEMUX?
+% 	cool minecraft tech: CCA adder (Yap7 + Magic:\^ (2014)))
+% 	$$cc_i = carry_cancel_i = cancel_i = a_i nand b_i = not propagate$$
+% 	$$g_i = generate_i = a_1 and b_i$$
+% 	$$c_{i+1} = (not cancel_i) and (generate_i or ((not cancel_{i-1}) and (generate_{i-1} or ...)))$$
+% 	$$= ((not cancel_i) and generate_i) or ((not cancel_i) and (not cancel_{i-1}) and generate_{i-1}) or ...$$
+% 	$$= sum_{j=0}^{i} generate_{j} and prod_{k=j}^{i} ¬cancel_k$$
+% 	$$slabTower_{g_i} = max power strength_{j=0}^{i-1} generate_j$$
+% 	$$slabTower_{cc_i} = max power strength_{j=0}^{i-1} cc_j$$
+% 	works because a carry that is later canceled will have less power strength on th towers
+% 	$$c_{i+1} = slabTower_{g_i} > slabTower_{cc_i}$$
+% 	$$c_0 = carry_in$$
+% 	$$a_n = b_n = 0$$
+% 	$$o_i = a_i xor b_i xor c_i$$
+% 	cancel doesn't have to be accurate (use NOR)
+%
+% 	7 ticks design (5 tick possible?)
+% 	fully synchronized
+% 	pipeline every 1 or 2 ticks
+% \end{frame}
 
-	7 ticks design (5 tick possible?)
-	fully synchronized
-	pipeline every 1 or 2 ticks
-\end{frame}
-
-% TODO
 \begin{frame}
 	\frametitle{Minecraft vs "Real" Hardware: what's different?}
-	power strength
-	instant diodes
-	no tooling: HDL, version control, GTKWave, test framework
-	the physical layer is much more constraining: wires are big and connect automatically, but being compact is necessary for performance
+	A few oddities
+	\begin{itemize}
+		\item Power strength logic
+		\item Instant diodes
+	\end{itemize}
+	Fewer tooling
+	\begin{itemize}
+		\item HDL
+		\item Version control
+		\item GTKWave
+		\item Test framework
+	\end{itemize}
+	Constraining physical layer
+	\begin{itemize}
+		\item Performance => short wires => compact
+		\item Large wires => compact is hard
+	\end{itemize}
 \end{frame}
 
 \section{"Craft your IC" Design and ISA}
@@ -549,6 +560,7 @@ setblock -268 197 -1402 air
 		\item FPGA + yosys + nexpnr + git + verilog => blinky
 		\item Minecraft with interactive instant feedback
 	\end{itemize}
+	% easy to understand the parallel nature of hardware
 	Just a silly video game? Think again:
 	\begin{itemize}
 		\item Open Redstone Engineers \href{https://openredstone.org/testimonials}{testimonials}
