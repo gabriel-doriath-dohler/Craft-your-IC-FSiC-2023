@@ -2,7 +2,7 @@ result
 .direnv/
 /.pre-commit-config.yaml
 # LaTeX
-*.pdf
+/docs/slides.pdf
 *.toc
 *.vrb
 *.out
