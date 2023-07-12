@@ -92,6 +92,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 				\end{itemize}
 
 				\item<4->{Many more redstone components...}
+				\item<8>{MC = netlist simulator for 4-bit valued signals}
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -123,33 +124,33 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{Minecraft Redstone: unusual behavior}
-
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{itemize}
-				\item<1->Comparators =\\ weird transistors with 2 modes:
-				\begin{itemize}
-					\item<1->{Compare mode transmits iff\\ main input $\geq$ side input}
-					\item<1->{Substract =\\ max(0, main input - side input)}
-				\end{itemize}
-				\item<2->{Slab = instant diode}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{center}
-				\includegraphics<1>[width=0.7\textwidth]{imgs/cmp.png}
-				\includegraphics<1>[width=0.7\textwidth]{imgs/cmp_sub.png}
-
-				\includegraphics<2>[width=0.9\textwidth]{imgs/slab.png}
-			\end{center}
-		\end{column}
-	\end{columns}
-	% skip barrels
-
-	MC = netlist simulator for 4-bit valued signals
-\end{frame}
+% \begin{frame}
+% 	\frametitle{Minecraft Redstone: unusual behavior}
+%
+% 	\begin{columns}
+% 		\begin{column}{0.5\textwidth}
+% 			\begin{itemize}
+% 				\item<1->Comparators =\\ weird transistors with 2 modes:
+% 				\begin{itemize}
+% 					\item<1->{Compare mode transmits iff\\ main input > side input}
+% 					\item<1->{Substract =\\ max(0, main input - side input)}
+% 				\end{itemize}
+% 				\item<2->{Slab = instant diode}
+% 			\end{itemize}
+% 		\end{column}
+% 		\begin{column}{0.5\textwidth}
+% 			\begin{center}
+% 				\includegraphics<1>[width=0.7\textwidth]{imgs/cmp.png}
+% 				\includegraphics<1>[width=0.7\textwidth]{imgs/cmp_sub.png}
+%
+% 				\includegraphics<2>[width=0.9\textwidth]{imgs/slab.png}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}
+% 	% skip barrels
+%
+% 	MC = netlist simulator for 4-bit valued signals
+% \end{frame}
 
 % \begin{frame}
 % 	\frametitle{Building Circuits!}
