@@ -178,13 +178,25 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	pipeline every 1 or 2 ticks
 \end{frame}
 
-% TODO
 \begin{frame}
 	\frametitle{Minecraft vs "Real" Hardware: what's different?}
-	power strength
-	instant diodes
-	no tooling: HDL, version control, GTKWave, test framework
-	the physical layer is much more constraining: wires are big and connect automatically, but being compact is necessary for performance
+	A few oddities
+	\begin{itemize}
+		\item Power strength logic
+		\item Instant diodes
+	\end{itemize}
+	Fewer tooling
+	\begin{itemize}
+		\item HDL
+		\item Version control
+		\item GTKWave
+		\item Test framework
+	\end{itemize}
+	Constraining physical layer
+	\begin{itemize}
+		\item Performance => short wires => compact
+		\item Large wires => compact is hard
+	\end{itemize}
 \end{frame}
 
 \section{"Craft your IC" Design and ISA}
