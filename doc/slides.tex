@@ -58,7 +58,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\tableofcontents
 \end{frame}
 
-\section{Logic circuits in Minecraft (gdd)}
+\section{Logic circuits in Minecraft}
 
  {
   \usebackgroundtemplate{\includegraphics[width=\paperwidth]{imgs/minecraft.png}}
@@ -187,7 +187,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	the physical layer is much more constraining: wires are big and connect automatically, but being compact is necessary for performance
 \end{frame}
 
-\section{"Craft your IC" Design and ISA (cst1)}
+\section{"Craft your IC" Design and ISA}
 
 % note for cst1: i would talk about:
 % - ISA choice (why not RISV-V?)
@@ -302,7 +302,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				% TODO 
+				% TODO
 				\item Tileable degisn
 				\item Compact for speed.
 			\end{itemize}
@@ -323,7 +323,7 @@ Minecraft\footnote{\tiny{}\reproduce}\\\small{} École Normale Supérieure, Pari
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				% TODO 
+				% TODO
 				\item $3$ individually-addressable displays
 				      %\item Formal verification
 			\end{itemize}
@@ -421,7 +421,7 @@ setblock -268 197 -1402 air
 	\end{columns}
 \end{frame}
 
-\section{Demo (cst1)}
+\section{Demo}
 
 \begin{frame}
 	\frametitle{The Demo (finally!)}
@@ -431,7 +431,7 @@ setblock -268 197 -1402 air
 	joke: very secure because: active temper detection with TNT + industry grade (aka. java) RNG.
 \end{frame}
 
-\section{The community (cst1)}
+\section{The community}
 
 \begin{frame}
 	\frametitle{The community}
@@ -483,32 +483,7 @@ setblock -268 197 -1402 air
 	MIT license
 \end{frame}
 
-%\begin{frame}
-%	ORE
-%	Chungus 2
-%	minecraft in minecraft
-%	similar to traditional FOSS communities
-%	license
-%	they make sure to give credits to creators of designs
-%
-%	toolchain:
-%	- prismlauncher and quilt mod loader
-%	- ressource pack vanilla tweaks
-%	- worldedit (copy paste)
-%	- replay mod (debugging and rendering)
-%	- carpet (tick rate control + noclip and more)
-%	- ferritecore, immediatelyFast, lithium, sodium (optimizations)
-%	- Xaero's World Map (waypoints)
-%	- Tweakeroo (flexible and accurate block placement)
-%	- litematica
-%	- isometric renders (renders)
-%	- MCHPRS (gdd?)
-%
-%	Talk about the community doing crazy CPUs in MC, drop a picture, some
-%	links, etc.
-%\end{frame}
-
-\section{Verification (gdd)}
+\section{Verification}
 % \begin{frame}
 % 	\frametitle{Perspectives}
 % 	\begin{itemize}
@@ -564,28 +539,31 @@ setblock -268 197 -1402 air
 	\end{itemize}
 \end{frame}
 
-\section{Educational Aspects (gdd + cst1)}
+\section{Educational Aspects}
 
-% TODO
 \begin{frame}
 	\frametitle{Learning Outcomes}
-	testimonials from ORE who became "real" hardware people
-	talent pool to recruit from
-	MC is an interactive tool
-	lecture at Harvard
-	16 yo
-	graphics rendering
-	asm
-	LLVM-like optimization stages for MCHPRS
+	How would you introduce hardware design to a high-schooler?
+	\begin{itemize}
+		\item FPGA + yosys + nexpnr + git + verilog => blinky
+		\item Minecraft with interactive instant feedback
+	\end{itemize}
+	Just a silly video game? Think again:
+	\begin{itemize}
+		\item Open Redstone Engineers \href{https://openredstone.org/testimonials}{testimonials}
+		\item \includegraphics[width=.4\textwidth]{imgs/tweet.png}
+		\item Learned from \textbf{first principles}: CPU design, ISA choice, debugging, assembly, linking, and formal verification
+	\end{itemize}
 
-	asm
-	linker
-	CPU design
-	verification
+	% talent pool to recruit from
+\end{frame}
 
-	teaching redstone to my brother is simpler than verilog
-
-	what we learned
+\begin{frame}
+	\frametitle{From Minecraft to "real" hardware}
+	\includegraphics[width=.4\textwidth]{imgs/1000.png}
+	\includegraphics[width=.4\textwidth]{imgs/500.png}
+	\includegraphics[width=.4\textwidth]{imgs/200.png}
+	\includegraphics[width=.4\textwidth]{imgs/50.png}
 \end{frame}
 
 \begin{frame}
